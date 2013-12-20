@@ -1,0 +1,17 @@
+{
+  "name": "app-template",
+  "version": "0.0.0",
+  "homepage": "https://github.com/nprapps/app-template",
+  "authors": [
+    "NPR Apps <nprapps@npr.org>"
+  ],
+  "license": "Copyright NPR 2013",
+  "private": true,
+  "dependencies": {
+    "bootstrap": "3.0.3",
+    "jquery": "1.10.2",
+    "modernizr": "2.7.1",
+    "moment": "1.7.2",
+    "underscore": "1.4.2"
+  }
+}

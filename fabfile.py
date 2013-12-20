@@ -273,7 +273,8 @@ def install_requirements():
     require('settings', provided_by=[production, staging])
 
     run('%(SERVER_VIRTUALENV_PATH)s/bin/pip install -U -r %(SERVER_REPOSITORY_PATH)s/requirements.txt' % app_config.__dict__)
-    run('cd %(SERVER_REPOSITORY_PATH)s; npm install less universal-jst -g --prefix node_modules' % app_config.__dict__)
+    run('cd %(SERVER_REPOSITORY_PATH)s; npm install less universal-jst bower -g --prefix node_modules' % app_config.__dict__)
+    run('cd %(SERVER_REPOSITORY_PATH)s; node_modules/bin/bower install' % app_config.__dict__)
 
 def install_crontab():
     """
@@ -552,6 +553,7 @@ def app_template_bootstrap(project_name=None, repository_name=None):
     local('git remote add origin git@github.com:nprapps/%s.git' % config['$NEW_REPOSITORY_NAME'])
     local('git push -u origin master')
 
-    local('npm install less universal-jst -g --prefix node_modules')
+    local('npm install less universal-jst bower -g --prefix node_modules')
+    local('node_modules/bin/bower install')
 
     update_copy()
